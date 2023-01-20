@@ -1,0 +1,29 @@
+<section class="p-5 bg-light rounded aaa">
+
+    <h2 class="text-center">LISTADO DE POSTS</h2>
+    <pre class="d-none">{{listado|json}}</pre>
+    <section class="container-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">TITLE</th>
+                    <th class="text-center">BODY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listado">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.body }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+</section>
+
+<style>
+
+</style>

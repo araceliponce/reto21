@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AutenticacionService {
+
+  constructor() { }
+
+  //pegar, importar Subject
+  readonly ISLOGGEDKEY = 'islogged';
+public urlUsuarioIntentaAcceder = '';
+
+public changeLoginStatusSubject = new Subject<boolean>();
+public changeLoginStatus$ = this.changeLoginStatusSubject.asObservable();
+
+login() {
+  /* if(sunombre=='AD'&&suPass=='123456'){
+    localStorage.setItem(this.ISLOGGEDKEY, 'true');
+  this.changeLoginStatusSubject.next(true);
+  } */
+localStorage.setItem(this.ISLOGGEDKEY, 'true');
+this.changeLoginStatusSubject.next(true);
+}
+
+logout() {
+localStorage.removeItem(this.ISLOGGEDKEY);
+this.changeLoginStatusSubject.next(false);
+}
+
+isLoggedIn(url: string) {
+const isLogged = localStorage.getItem(this.ISLOGGEDKEY);
+if (!isLogged) {
+this.urlUsuarioIntentaAcceder = url;
+return false;
+}
+return true;
+}
+}

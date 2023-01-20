@@ -1,0 +1,27 @@
+<!-- create and set an aria attribute for assistive technology -->
+<button class="d-none" type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+
+
+<section class="col-5 mx-auto p-5 bg-light aaa rounded">
+  <h2>Log In</h2>
+  <section class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" id="username" [(ngModel)]="suNombre">
+  </section>
+  <section class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" [(ngModel)]="suPass">
+  </section>
+  <input type="button" class="btn btn-primary" (click)="login()" value="Log in">
+</section>
+
+<style>
+  .aaa {
+    min-height: 60vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-flow: column wrap;
+    outline: 1px solid cornflowerblue;
+    gap: 2rem;
+  }
+</style>
